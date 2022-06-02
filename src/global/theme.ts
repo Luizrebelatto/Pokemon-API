@@ -6,5 +6,12 @@ export default {
     text: '#303943',
     grey_dark: '#212121',
     grey_medium: '#767676'
+  },
+
+  fonts: {
+    regular: 'Inter_400Regular',
+    medium: 'Inter_500Medium',
+    semiBold: 'Inter_600SemiBold',
+    bold: 'Inter_700Bold'
   }
 }

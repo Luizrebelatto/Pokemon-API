@@ -7,17 +7,18 @@ import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_7
 
 import theme  from './src/global/theme';
 
-const [fontsLoaded] = useFonts({
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold
-});
-
-if(!fontsLoaded)
-  <AppLoading/>
-
 export default function App() {
+
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold
+  });
+  
+  if(!fontsLoaded)
+    <AppLoading/>
+
   return (
     <ThemeProvider theme={theme}>
       <View>

@@ -8,6 +8,8 @@ import { useFonts, Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_7
 import theme  from './src/global/theme';
 import { Dashboard } from './src/screens/Dashboard';
 
+import { Details } from './src/screens/Details';
+
 export default function App() {
 
   const [fontsLoaded] = useFonts({
@@ -22,7 +24,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Dashboard/>
+      <Details/>
     </ThemeProvider>
   );
 }

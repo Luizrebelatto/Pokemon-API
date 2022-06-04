@@ -2,7 +2,7 @@ import React from "react";
 
 // import ImagePokemon from '../../assets/Bulba.png';
 import { Label } from '../../components/Label'
-import { Body, Container, Header, NamePokemon, PokemonNumber, Content, View } from './styles';
+import { Body, Container, Header, NamePokemon, PokemonNumber, Content, View, Title, ViewBody } from './styles';
 
 export function Details(){
   return(
@@ -18,7 +18,9 @@ export function Details(){
         </View>
       </Header>
       <Body>
-      
+      <ViewBody>
+         <Title>Descrição</Title>
+      </ViewBody>
       </Body>
     </Container>
   )

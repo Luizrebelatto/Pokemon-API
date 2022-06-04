@@ -41,3 +41,16 @@ export const View = styled.View`
   flex-direction: row;
   padding-top: 11px;
 `;
+
+export const Title = styled.Text`
+  color: #48D0B0;
+  font-family: ${({ theme }) => theme.fonts.bold};
+  font-weight: bold;
+  font-size: 20px;
+  
+`;
+
+export const ViewBody = styled.View`
+  flex: 1;
+  margin: 52px 20px 0 20px;
+`;

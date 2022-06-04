@@ -1,5 +1,6 @@
 import React from "react";
 
+// import ImagePokemon from '../../assets/Bulba.png';
 import { Label } from '../../components/Label'
 import { Body, Container, Header, NamePokemon, PokemonNumber, Content, View } from './styles';
 

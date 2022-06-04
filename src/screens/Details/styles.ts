@@ -2,20 +2,20 @@ import styled from "styled-components/native";
 
 export const Container = styled.View`
   flex: 1;
+  background-color: #48D0B0;
 `;
 
 export const Body = styled.View`
   width: 100%;
-  height: 50%;
-  background-color: yellow;
+  flex: 1;
+  background-color: ${({ theme }) => theme.colors.white};
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
 `;
 
 export const Header = styled.View`
   width: 100%;
-  height: 50%;
-  background-color: #48D0B0;
+  padding: 18px 31px 25px 20px;
 `;
 
 export const NamePokemon = styled.Text`
@@ -39,4 +39,5 @@ export const Content = styled.View`
 
 export const View = styled.View`
   flex-direction: row;
+  padding-top: 11px;
 `;

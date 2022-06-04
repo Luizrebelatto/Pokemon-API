@@ -7,6 +7,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
   border-radius: 36px;
+  margin-right: 7px;
 `;
 
 export const Text = styled.Text`

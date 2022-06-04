@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
+import { FontAwesome5 } from '@expo/vector-icons';
 
-export const Container = styled.View`
+export const Container = styled.ScrollView`
   flex: 1;
   background-color: #48D0B0;
 `;
@@ -65,4 +66,39 @@ export const Separator = styled.View`
   height: 60px;
   border: 0.7px solid #E0E0E0;
   margin-top: 32px;
+`;
+
+export const TitleChar = styled.Text`
+  font-size: 16px;
+  font-family: ${({ theme }) => theme.fonts.medium};
+  color: ${({ theme }) => theme.colors.text};
+  margin-top: 31px;
+`;
+
+export const Gender = styled.View`
+  flex-direction: row;
+  margin-top: 14px;
+`;
+
+export const GenderTitle = styled.Text`
+  font-size: 14px;
+  font-family: ${({ theme }) => theme.fonts.regular};
+  color: ${({ theme }) => theme.colors.text};
+`;
+
+export const Male = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const Icon = styled(FontAwesome5)`
+  margin-left: 14px;
+`;
+
+export const GenderText = styled.Text`
+  font-size: 14px;
+  font-weight: bold;
+  font-family: ${({ theme }) => theme.fonts.bold};
+  color: ${({ theme }) => theme.colors.text};
+  margin-left: 5px;
 `;

@@ -4,7 +4,25 @@ import React from "react";
 import { Label } from '../../components/Label';
 import { Description } from '../../components/Description';
 import { Attributes } from '../../components/Attributes';
-import { Body, Container, Header, NamePokemon, PokemonNumber, Content, View, Title, ViewBody, ViewAttributes, Separator } from './styles';
+import { 
+  Body, 
+  Container, 
+  Header, 
+  NamePokemon, 
+  PokemonNumber, 
+  Content, 
+  View, 
+  Title, 
+  ViewBody, 
+  ViewAttributes, 
+  Separator, 
+  TitleChar,
+  Gender,
+  GenderTitle,
+  Male,
+  Icon,
+  GenderText
+} from './styles';
 
 export function Details(){
   return(
@@ -34,6 +52,23 @@ export function Details(){
           <Attributes title="Poder Principal" content="Chicote de vinha"/>
         </ViewAttributes>
 
+        <TitleChar>Suas características</TitleChar>
+        <Gender>
+          <GenderTitle>Gênero</GenderTitle>
+          <Male>
+            <Icon name="male"/>
+            <GenderText>87.5%</GenderText>
+          </Male>
+          <Male>
+            <Icon name="male"/>
+            <GenderText>87.5%</GenderText>
+          </Male>
+        </Gender>
+
+        <TitleChar style={{ marginBottom: 14 }}>Pontos fortes e fracos</TitleChar>
+         <Description 
+          content="Pokémon tipo grama são fortes contra pokémon do tipo Água, Terra, Pedra mas eles são fracos contra pokémon do tipo Fogo, Grama, Veneno, Voador, Inseto, Dragão. Pokémon tipo veneno são fortes contra pokémon do tipo Grama, Inseto, Fada mas eles são fracos contra pokémon do tipo Veneno, Terra, Pedra, Fantasma."
+        />
       </ViewBody>
       </Body>
     </Container>

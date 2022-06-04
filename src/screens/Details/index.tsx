@@ -1,6 +1,6 @@
 import React from "react";
-
-// import ImagePokemon from '../../assets/Bulba.png';
+import { Image } from 'react-native';
+import ImagePokemon from '../../assets/Bulba.png';
 import { Label } from '../../components/Label';
 import { Description } from '../../components/Description';
 import { Attributes } from '../../components/Attributes';
@@ -37,7 +37,9 @@ export function Details(){
           <Label title="Venenoso"/>
         </View>
       </Header>
+      
       <Body>
+      <Image source={ImagePokemon} style={{ width:100, height: 100, marginLeft: 140}}/>
       <ViewBody>
          <Title>Descrição</Title>
          <Description 

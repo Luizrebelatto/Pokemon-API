@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Body, Container, Header, NamePokemon, PokemonNumber, Content } from './styles';
+import { Label } from '../../components/Label'
+import { Body, Container, Header, NamePokemon, PokemonNumber, Content, View } from './styles';
 
 export function Details(){
   return(
@@ -10,7 +11,10 @@ export function Details(){
           <NamePokemon>Bulbassaur</NamePokemon>
           <PokemonNumber>#001</PokemonNumber>
         </Content>
-        
+        <View>
+          <Label title="Planta"/>
+          <Label title="Venenoso"/>
+        </View>
       </Header>
       <Body>
       

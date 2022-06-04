@@ -28,10 +28,15 @@ export const PokemonNumber = styled.Text`
   color: ${({ theme }) => theme.colors.white};
   font-size: 18px;
   font-family: ${({ theme }) => theme.fonts.bold};
+  font-weight: bold;
 `;
 
 export const Content = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-`
+`;
+
+export const View = styled.View`
+  flex-direction: row;
+`;

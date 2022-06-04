@@ -54,3 +54,15 @@ export const ViewBody = styled.View`
   flex: 1;
   margin: 52px 20px 0 20px;
 `;
+
+export const ViewAttributes = styled.View`
+  flex-direction: row;
+  margin: 0 23px;
+  justify-content: space-between;
+`;
+
+export const Separator = styled.View`
+  height: 60px;
+  border: 0.7px solid #E0E0E0;
+  margin-top: 32px;
+`;

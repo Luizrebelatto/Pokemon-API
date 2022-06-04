@@ -47,7 +47,7 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.fonts.bold};
   font-weight: bold;
   font-size: 20px;
-  
+  margin-bottom: 41px;
 `;
 
 export const ViewBody = styled.View`

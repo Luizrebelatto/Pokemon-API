@@ -31,6 +31,7 @@ import {
 
 interface IPokemon {
   name: string;
+  id: number;
   weight: number;
   height: number;
   move: string;
@@ -40,11 +41,15 @@ interface IPokemon {
   valueAttack: number;
   valueDefense: number;
   speed: number;
+  type1: string;
+  type2: string;
+  description: string;
 }
 
 export function Details(){
 
   const [descriptions, setDescriptions] = useState([] as IPokemon[]);
+  const [total, setTotal] = useState(0)
 
   useEffect(() => {
     (async() => {
@@ -52,8 +57,10 @@ export function Details(){
             const collection: IPokemon[] = [];
             const response = await api.get('/pokemon/1');
             const elements = response.data;
+            const responseDescription = await api.get('/pokemon-species/1');
             var items = {
               name: elements.name,
+              id: elements.id,
               weight: elements.weight,
               height: elements.height,
               move: elements.moves[4].move.name,
@@ -62,10 +69,16 @@ export function Details(){
               defense: elements.stats[2].base_stat,
               valueAttack: elements.stats[3].base_stat,
               valueDefense: elements.stats[4].base_stat,
-              speed: elements.stats[5].base_stat
+              speed: elements.stats[5].base_stat,
+              type1: elements.types[0].type.name,
+              type2: elements.types[1].type.name,
+              description: responseDescription.data.flavor_text_entries[6].flavor_text
             }
+
+            const sum = items.health + items.attack + items.defense + items.valueAttack + items.valueDefense + items.speed;
+            setTotal(sum);
             collection.push(items);
-            setDescriptions([...collection])        
+            setDescriptions(Object.values([...collection]))        
         } catch(error) { 
             console.log(error);
         }
@@ -74,60 +87,66 @@ export function Details(){
 
   return(
     <Container>
-      <Header>
-        <Content>
-          <NamePokemon>Bulbassaur</NamePokemon>
-          <PokemonNumber>#001</PokemonNumber>
-        </Content>
-        <View>
-          <Label title="Planta"/>
-          <Label title="Venenoso"/>
-        </View>
-      </Header>
+      {descriptions.map((item) => 
+        (
+          <>
+            <Header>
+              <Content>
+                <NamePokemon>{item.name}</NamePokemon>
+                <PokemonNumber>{item.id >= 10 ? `#0${item.id}` : `#00${item.id}`}</PokemonNumber>
+              </Content>
+              <View>
+                <Label title={item.type1}/>
+                <Label title={item.type2}/>
+              </View>
+            </Header>
       
-      <Body>
-      <Image source={ImagePokemon} style={{ width:100, height: 100, marginLeft: 140}}/>
-      <ViewBody>
-         <Title>Descrição</Title>
-         <Description 
-          content="Bulbasaur pode ser visto cochilando sob a luz do sol. Há uma semente nas costas. Ao absorver os raios do sol, a semente cresce progressivamente maior."
-        />
+            <Body>
+              <Image source={ImagePokemon} style={{ width:100, height: 100, marginLeft: 140}}/>
+              <ViewBody>
+                <Title>Descrição</Title>
+                <Description 
+                  content={item.description}
+                />
 
-        <ViewAttributes>
-          <Attributes title="Peso" content="6.9 KG" type="weight"/>
-          <Separator/>
-          <Attributes title="Altura" content="0.7 m" type="ruler-vertical"/>
-          <Separator/>
-          <Attributes title="Poder Principal" content="Chicote de vinha"/>
-        </ViewAttributes>
+                <ViewAttributes>
+                  <Attributes title="Peso" content={String(item.weight) + ' KG'} type="weight"/>
+                  <Separator/>
+                  <Attributes title="Altura" content={String(item.height) + ' m'} type="ruler-vertical"/>
+                  <Separator/>
+                  <Attributes title="Poder Principal" content={item.move}/>
+                </ViewAttributes>
 
-        <TitleChar>Suas características</TitleChar>
-        <Gender>
-          <GenderTitle>Gênero</GenderTitle>
-          <Male>
-            <Icon name="male"/>
-            <GenderText>87.5%</GenderText>
-          </Male>
-          <Male>
-            <Icon name="male"/>
-            <GenderText>87.5%</GenderText>
-          </Male>
-        </Gender>
+                <TitleChar>Suas características</TitleChar>
+                <Gender>
+                  <GenderTitle>Gênero</GenderTitle>
+                  <Male>
+                    <Icon name="male"/>
+                    <GenderText>87.5%</GenderText>
+                  </Male>
+                  <Male>
+                    <Icon name="female"/>
+                    <GenderText>87.5%</GenderText>
+                  </Male>
+                </Gender>
 
-        <Skills title="Saúde" value="45"/>
-        <Skills title="Ataque" value="49"/>
-        <Skills title="defesa" value="49"/>
-        <Skills title="Vl.Ataque" value="65"/>
-        <Skills title="Vl.Defesa" value="15"/>
-        <Skills title="Velocidade" value="15"/>
-        <Skills title="Total" value="317"/>
+                <Skills title="Saúde" value={item.health}/>
+                <Skills title="Ataque" value={item.attack}/>
+                <Skills title="defesa" value={item.defense}/>
+                <Skills title="Vl.Ataque" value={item.valueAttack}/>
+                <Skills title="Vl.Defesa" value={item.valueDefense}/>
+                <Skills title="Velocidade" value={item.speed}/>
+                <Skills title="Total" value={total}/>
 
-        <TitleChar style={{ marginBottom: 14 }}>Pontos fortes e fracos</TitleChar>
-         <Description 
-          content="Pokémon tipo grama são fortes contra pokémon do tipo Água, Terra, Pedra mas eles são fracos contra pokémon do tipo Fogo, Grama, Veneno, Voador, Inseto, Dragão. Pokémon tipo veneno são fortes contra pokémon do tipo Grama, Inseto, Fada mas eles são fracos contra pokémon do tipo Veneno, Terra, Pedra, Fantasma."
-        />
-      </ViewBody>
-      </Body>
+                <TitleChar style={{ marginBottom: 14 }}>Pontos fortes e fracos</TitleChar>
+                <Description 
+                  content="Pokémon tipo grama são fortes contra pokémon do tipo Água, Terra, Pedra mas eles são fracos contra pokémon do tipo Fogo, Grama, Veneno, Voador, Inseto, Dragão. Pokémon tipo veneno são fortes contra pokémon do tipo Grama, Inseto, Fada mas eles são fracos contra pokémon do tipo Veneno, Terra, Pedra, Fantasma."
+                />
+              </ViewBody>
+            </Body>
+          </>
+        ))
+      }
     </Container>
   )
 }

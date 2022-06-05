@@ -4,6 +4,7 @@ import ImagePokemon from '../../assets/Bulba.png';
 import { Label } from '../../components/Label';
 import { Description } from '../../components/Description';
 import { Attributes } from '../../components/Attributes';
+import { Skills } from '../../components/Skills';
 import { 
   Body, 
   Container, 
@@ -66,6 +67,13 @@ export function Details(){
             <GenderText>87.5%</GenderText>
           </Male>
         </Gender>
+
+        <Skills title="Saúde" value="45"/>
+        <Skills title="Ataque" value="49"/>
+        <Skills title="Vl.Ataque" value="65"/>
+        <Skills title="Vl.Defesa" value="65"/>
+        <Skills title="Velocidade" value="45"/>
+        <Skills title="Total" value="317"/>
 
         <TitleChar style={{ marginBottom: 14 }}>Pontos fortes e fracos</TitleChar>
          <Description 

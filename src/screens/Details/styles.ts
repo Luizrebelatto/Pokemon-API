@@ -82,8 +82,8 @@ export const Gender = styled.View`
 
 export const GenderTitle = styled.Text`
   font-size: 14px;
-  font-family: ${({ theme }) => theme.fonts.regular};
-  color: ${({ theme }) => theme.colors.text};
+  font-family: ${({ theme }) => theme.fonts.medium};
+  color: ${({ theme }) => theme.colors.primary_grey};
 `;
 
 export const Male = styled.View`

@@ -5,7 +5,8 @@ export default {
     white: '#FFFFFF',
     text: '#303943',
     grey_dark: '#212121',
-    grey_medium: '#767676'
+    grey_medium: '#767676',
+    primary_grey: '#444444'
   },
 
   fonts: {

@@ -17,4 +17,5 @@ export const Value = styled.Text`
   color: ${({ theme }) => theme.colors.primary_grey};
   font-size: 14px;
   margin-left: 35px;
+  width: 25px;
 `;
